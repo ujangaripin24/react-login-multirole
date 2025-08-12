@@ -36,12 +36,10 @@ const FormEditUser = () => {
               <div className="field">
                 <label htmlFor="" className="label">Role</label>
                 <div className="control">
-                  <div className="select-is-fullwidth">
-                    <select name="" id="">
-                      <option value="admin">Admin</option>
-                      <option value="user">User</option>
-                    </select>
-                  </div>
+                  <select name="" id="">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                  </select>
                 </div>
               </div>
               <div className="field mt-5">
