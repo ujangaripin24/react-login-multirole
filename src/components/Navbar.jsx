@@ -1,7 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {Logout, reset} from "../features/authSlice";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const {user} = useSelector((state) => state.auth)
+
+    const logout = () => {
+        dispatch(Logout())
+        dispatch(reset());
+        navigate('/login')
+    }
   return (
     <div>
       <nav className="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
@@ -56,7 +68,7 @@ const Navbar = () => {
                 <a className="button is-primary">
                   <strong>Sign up</strong>
                 </a>
-                <button className="button is-light">
+                <button onClick={logout} className="button is-light">
                   Log Out
                 </button>
               </div>
